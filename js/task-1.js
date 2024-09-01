@@ -1,21 +1,10 @@
-function makeTransaction(quantity, pricePerDroid, customerCredits) {
-  // Загальна вартість усіх замовлених дроїдів:
-
-  const totalPrice = quantity * pricePerDroid;
-
-  // Перевірку, чи зможе клієнт оплатити замовлення:
-
-  if (totalPrice > customerCredits) {
-    return "Insufficient funds!";
-  } else {
-    return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
-  }
+function slugify(title) {
+  // Перетворюємо заголовок на нижній регістр, розбиваємо на слова та об'єднуємо з тире
+  return title.toLowerCase().split(' ').join('-');
 }
 
-// Перевірка коректної роботи функції
-
-console.log(makeTransaction(5, 3000, 23000)); // "You ordered 5 droids worth 15000 credits!"
-console.log(makeTransaction(3, 1000, 15000)); // "You ordered 3 droids worth 3000 credits!"
-console.log(makeTransaction(10, 5000, 8000)); // "Insufficient funds!"
-console.log(makeTransaction(8, 2000, 10000)); // "Insufficient funds!"
-console.log(makeTransaction(10, 500, 5000)); // "You ordered 10 droids worth 5000 credits!"
+// Перевірка роботи функції
+console.log(slugify("JavaScript Is Awesome")); // "javascript-is-awesome"
+console.log(slugify("Learning to Code")); // "learning-to-code"
+console.log(slugify("Hello World")); // "hello-world"
+console.log(slugify("Make Your Own Slug")); // "make-your-own-slug"

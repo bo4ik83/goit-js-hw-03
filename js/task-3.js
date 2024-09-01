@@ -1,17 +1,15 @@
-function checkForSpam(message) {
-  const lowerCaseMessage = message.toLowerCase();
-  if (lowerCaseMessage.includes("spam") || lowerCaseMessage.includes("sale")) {
-    return true;
+function filterArray(numbers, value) {
+  const filteredNumbers = [];
+  for (let i = 0; i < numbers.length; i++) {
+      if (numbers[i] > value) {
+          filteredNumbers.push(numbers[i]);
+      }
   }
-  return false;
+  return filteredNumbers;
 }
 
-// Перевірка коректної роботи функції:
-
-console.log(checkForSpam("Latest technology news")); // false
-console.log(checkForSpam("JavaScript weekly newsletter")); // false
-console.log(checkForSpam("Get best sale offers now!")); // true
-console.log(checkForSpam("Amazing SalE, only tonight!")); // true
-console.log(checkForSpam("Trust me, this is not a spam message")); // true
-console.log(checkForSpam("Get rid of sPaM emails. Our book in on sale!")); // true
-console.log(checkForSpam("[SPAM] How to earn fast money?")); // true
+// Перевірка роботи функції
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([10, 20, 30, 40, 50], 25)); // [30, 40, 50]
+console.log(filterArray([8, 12, 3, 7, 5], 7)); // [8, 12]
+console.log(filterArray([100, 200, 300], 150)); // [200, 300]
